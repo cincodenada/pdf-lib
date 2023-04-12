@@ -75,7 +75,7 @@ export const getType = (val: any) => {
   if (val === null) return 'null';
   if (val === undefined) return 'undefined';
   if (typeof val === 'string') return 'string';
-  if (isNaN(val)) return 'NaN';
+  if (Number.isNaN(val)) return 'NaN';
   if (typeof val === 'number') return 'number';
   if (typeof val === 'boolean') return 'boolean';
   if (typeof val === 'symbol') return 'symbol';
@@ -105,7 +105,7 @@ export const isType = (value: any, type: TypeDescriptor) => {
   if (type === 'null') return value === null;
   if (type === 'undefined') return value === undefined;
   if (type === 'string') return typeof value === 'string';
-  if (type === 'number') return typeof value === 'number' && !isNaN(value);
+  if (type === 'number') return typeof value === 'number' && !Number.isNaN(value);
   if (type === 'boolean') return typeof value === 'boolean';
   if (type === 'symbol') return typeof value === 'symbol';
   if (type === 'bigint') return typeof value === 'bigint';
