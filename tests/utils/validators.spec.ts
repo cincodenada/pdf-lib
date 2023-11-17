@@ -63,7 +63,7 @@ describe(`isType`, () => {
   it(`correctly determines the type of Date`, () => {
     expect(isType(new Date(), Date)).toEqual(true);
   });
-  it(`correctly determines the type of Uint8Array`, () => {
+  it(`correctly determines the type of Array`, () => {
     expect(isType(new Array(), Array)).toEqual(true);
   });
   it(`correctly determines the type of Uint8Array`, () => {
@@ -71,6 +71,9 @@ describe(`isType`, () => {
   });
   it(`correctly determines the type of ArrayBuffer`, () => {
     expect(isType(new ArrayBuffer(0), ArrayBuffer)).toEqual(true);
+  });
+  it(`allows subclasses`, () => {
+    expect(isType(Buffer.from("test"), ArrayBuffer)).toEqual(true);
   });
   it(`correctly determines the type of Example`, () => {
     expect(isType(function () {}, Function)).toEqual(true);
